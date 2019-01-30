@@ -1,0 +1,10 @@
+{
+  "SimpleVariantSelection.refIndex": "WDLdata/ref/ref.fasta.fai",
+  "SimpleVariantSelection.name": "father002",
+  "SimpleVariantSelection.refDict": "WDLdata/ref/ref.dict",
+  "SimpleVariantSelection.haplotypeCaller.bamIndex": "WDLdata/bams/father.bai",
+  "SimpleVariantSelection.refFasta": "WDLdata/ref/ref.fasta",
+  "SimpleVariantSelection.gatk": "gatk-4.0.10.1/gatk-package-4.0.10.1-local.jar",
+  "SimpleVariantSelection.haplotypeCaller.inputBAM": "WDLdata/bams/father.bam"
+}
+

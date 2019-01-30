@@ -1,0 +1,10 @@
+{
+  "helloHaplotypeCaller.haplotypeCaller.RefFasta": "WDLdata/ref/ref.fasta",
+  "helloHaplotypeCaller.haplotypeCaller.bamIndex": "WDLdata/bams/father.bai",
+  "helloHaplotypeCaller.haplotypeCaller.GATK": "gatk-4.0.10.1/gatk-package-4.0.10.1-local.jar",
+  "helloHaplotypeCaller.haplotypeCaller.RefIndex": "WDLdata/ref/ref.fasta.fai",
+  "helloHaplotypeCaller.haplotypeCaller.RefDict": "WDLdata/ref/ref.dict",
+  "helloHaplotypeCaller.haplotypeCaller.inputBAM": "WDLdata/bams/father.bam",
+  "helloHaplotypeCaller.haplotypeCaller.sampleName": "father001"
+}
+
