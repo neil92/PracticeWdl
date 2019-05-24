@@ -17,14 +17,21 @@ workflow jointCallingGenotypes {
         bamIndex=sample[2]
     }
   }
-
-  call GenotypeGVCFs {
+  call CombineGVCFs {
     input: GATK=gatk,
     RefFasta=refFasta,
     RefIndex=refIndex,
     RefDict=refDict,
     sampleName="CEUtrio",
     GVCFs=HaplotypeCallerERC.GVCF
+  }
+  call GenotypeGVCFs {
+    input: GATK=gatk,
+    RefFasta=refFasta,
+    RefIndex=refIndex,
+    RefDict=refDict,
+    sampleName=CombineGVCFs.outputSampleName,
+    GVCF=CombineGVCFs.CombinedGVCF
   }
 }
 
@@ -39,30 +46,49 @@ task HaplotypeCallerERC {
 
   command {
     java -jar ${GATK} \
-      HaplotypeCaller \
-      -ERC GVCF \
-      -R ${RefFasta} \
-      -I ${bamFile} \
-      -O ${sampleName}_rawLikelihoods.g.vcf
+        HaplotypeCaller \
+        -ERC GVCF \
+        -R ${RefFasta} \
+        -I ${bamFile} \
+        -O ${sampleName}_rawLikelihoods.g.vcf
   }
   output {
     File GVCF = "${sampleName}_rawLikelihoods.g.vcf"
   }
 }
-
-task GenotypeGVCFs {
+task CombineGVCFs {
   File GATK
   File RefFasta
   File RefIndex
   File RefDict
   String sampleName
   Array[File] GVCFs
+  
+  command {
+    java -jar ${GATK} \
+        CombineGVCFs \
+        -R ${RefFasta} \
+        --variant ${sep=" --variant " GVCFs} \
+        -O "${sampleName}_rawLikelihoods.g.vcf"
+  }
+  output {
+    File CombinedGVCF = "${sampleName}_rawLikelihoods.g.vcf"
+    String outputSampleName = "${sampleName}"
+  }
+}
+task GenotypeGVCFs {
+  File GATK
+  File RefFasta
+  File RefIndex
+  File RefDict
+  String sampleName
+  File GVCF
 
   command {
     java -jar ${GATK} \
         GenotypeGVCFs \
         -R ${RefFasta} \
-        -V ${sep=" -V " GVCFs} \
+        -V ${GVCF} \
         -O ${sampleName}_rawVariants.vcf
   }
   output {
