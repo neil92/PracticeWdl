@@ -1,0 +1,3 @@
+father	/home/nap24/bin/wdl/WDLdata/bams/father.bam	/home/nap24/bin/wdl/WDLdata/bams/father.bai
+mother	/home/nap24/bin/wdl/WDLdata/bams/mother.bam	/home/nap24/bin/wdl/WDLdata/bams/mother.bai
+son	/home/nap24/bin/wdl/WDLdata/bams/son.bam	/home/nap24/bin/wdl/WDLdata/bams/son.bai

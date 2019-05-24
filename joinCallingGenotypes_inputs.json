@@ -1,0 +1,8 @@
+{
+  "jointCallingGenotypes.inputSamplesFile": "/home/nap24/bin/PracticeWdl/inputsTSV.txt",
+  "jointCallingGenotypes.refFasta": "/home/nap24/bin/wdl/WDLdata/ref/ref.fasta",
+  "jointCallingGenotypes.gatk": "/home/nap24/bin/wdl/gatk-4.0.10.1/gatk-package-4.0.10.1-local.jar",
+  "jointCallingGenotypes.refDict": "/home/nap24/bin/wdl/WDLdata/ref/ref.dict",
+  "jointCallingGenotypes.refIndex": "/home/nap24/bin/wdl/WDLdata/ref/ref.fasta.fai"
+}
+
